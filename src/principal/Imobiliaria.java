@@ -14,13 +14,6 @@ public class Imobiliaria {
     private Set<String> cidades = new HashSet<>();
 
     public void exibeMenu() {
-        for (int i = 0; i < 35; i++) {
-            if (i % 2 == 0) {
-                imoveis.add(new Imovel(i, 100, 200, 5, 0, 50000, new Endereco("Ararangua", "Coloninha")));
-            } else {
-                imoveis.add(new Imovel(i, 100, 200, 5, 1, 50000, new Endereco("Criciuma", "Centro")));
-            }
-        }
         var menu = """
                 1 - Cadastrar de imóveis
                 2 - Listar imóveis
@@ -337,7 +330,6 @@ public class Imobiliaria {
                 }
                 try {
                 switch (opcao) {
-
                         case 1:
                             int codigo = verificaCodigo();
                             imoveis.get(imovelIndice).setCodigo(codigo);
