@@ -389,7 +389,7 @@ public class Imobiliaria {
                             String cidade = sc.nextLine();
                             System.out.println("Informe o bairro: ");
                             String bairro = sc.nextLine();
-                            if (imoveis.get(imovelIndice).getLocalizacao().getCidade() == cidade && imoveis.get(imovelIndice).getLocalizacao().getBairro() == bairro) {
+                            if (imoveis.get(imovelIndice).getLocalizacao().getCidade().equalsIgnoreCase(cidade) && imoveis.get(imovelIndice).getLocalizacao().getBairro().equalsIgnoreCase(bairro)) {
                                 throw new ValorIgualAntigoException("Os dados da localizaçao são iguais aos atuais!");
                             }
                             imoveis.get(imovelIndice).setLocalizacao(new Endereco(cidade, bairro));
