@@ -1,4 +1,4 @@
-import Principal.Imobiliaria;
+import principal.Imobiliaria;
 
 public class Main {
     public static void main(String[] args) {
