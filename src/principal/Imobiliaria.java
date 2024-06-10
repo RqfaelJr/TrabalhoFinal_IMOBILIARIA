@@ -14,13 +14,6 @@ public class Imobiliaria {
     private Set<String> cidades = new HashSet<>();
 
     public void exibeMenu() {
-        for (int i = 0; i < 30; i++) {
-            if (i % 2 == 0) {
-                imoveis.add(new Imovel(i, 150, 200, 3, 0, 250, new Endereco("Ararangua", "Coloninha")));
-            } else {
-                imoveis.add(new Imovel(i, 150, 200, 3, 1, 250, new Endereco("Ararangua", "Centro")));
-            }
-        }
         var menu = """
                 1 - Cadastrar de imóveis
                 2 - Listar imóveis
