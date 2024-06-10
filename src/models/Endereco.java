@@ -31,7 +31,7 @@ public class Endereco {
     @Override
     public String toString() {
         return
-                "\nCidade = " + cidade +
-                "\nBairro = " + bairro + "\n";
+                "\nCidade: " + cidade +
+                "\nBairro: " + bairro + "\n";
     }
 }

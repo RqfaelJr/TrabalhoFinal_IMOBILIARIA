@@ -14,6 +14,13 @@ public class Imobiliaria {
     private Set<String> cidades = new HashSet<>();
 
     public void exibeMenu() {
+        for (int i = 0; i < 30; i++) {
+            if (i % 2 == 0) {
+                imoveis.add(new Imovel(i, 150, 200, 3, 0, 250, new Endereco("Ararangua", "Coloninha")));
+            } else {
+                imoveis.add(new Imovel(i, 150, 200, 3, 1, 250, new Endereco("Ararangua", "Centro")));
+            }
+        }
         var menu = """
                 1 - Cadastrar de imóveis
                 2 - Listar imóveis
@@ -152,7 +159,6 @@ public class Imobiliaria {
     }
 
     private void listarImoveisPorTipo() {
-            System.out.println("Informe o tipo: (0 - Casa ou 1 - Apartamento)");
             int tipo = verificaTipo();
             imoveis.stream()
                     .filter(i -> i.getTipo() == tipo)
@@ -160,7 +166,6 @@ public class Imobiliaria {
 
     }
     private void listarCidades() {
-
         System.out.println("Cidades disponíveis: ");
         imoveis.forEach(i -> cidades.add(i.getLocalizacao().getCidade()));
         cidades.forEach(System.out::println);
@@ -270,8 +275,14 @@ public class Imobiliaria {
 
     }
 
+    private void listarCodigoImoveis() {
+        System.out.println("Código dos imóveis disponíveis: ");
+        imoveis.forEach(i -> System.out.println(i.getCodigo()));
+    }
+
     private int encontrarImovel() {
         try {
+            listarCodigoImoveis();
             System.out.println("Informe o código do imóvel: ");
             int codigo = sc.nextInt();
             sc.nextLine();
@@ -318,7 +329,7 @@ public class Imobiliaria {
             System.out.println("Imóvel não encontrado!");
         } else {
             int opcao = -1;
-            while (opcao != 9) {
+            while (opcao != 0) {
                 System.out.println(menu);
                 System.out.println("Escolha sua ação: ");
                 try {
@@ -392,7 +403,8 @@ public class Imobiliaria {
                             if (imoveis.get(imovelIndice).getLocalizacao().getCidade().equalsIgnoreCase(cidade) && imoveis.get(imovelIndice).getLocalizacao().getBairro().equalsIgnoreCase(bairro)) {
                                 throw new ValorIgualAntigoException("Os dados da localizaçao são iguais aos atuais!");
                             }
-                            imoveis.get(imovelIndice).setLocalizacao(new Endereco(cidade, bairro));
+                            imoveis.get(imovelIndice).getLocalizacao().setCidade(cidade);
+                            imoveis.get(imovelIndice).getLocalizacao().setBairro(bairro);
                             System.out.println("Novo endereço adicionado com sucesso!");
                             break;
                         case 0:

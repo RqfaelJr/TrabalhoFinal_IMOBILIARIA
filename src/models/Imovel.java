@@ -7,7 +7,6 @@ public class Imovel {
     private float areaTotal;
     private int numeroQuartos;
     private int tipo;
-
     private float preco;
     private Endereco localizacao;
 
@@ -78,14 +77,20 @@ public class Imovel {
         this.localizacao = localizacao;
     }
 
+    private String mostraTipo() {
+        if (this.tipo == 0) {
+            return "Casa";
+        }
+        return "Apartamento";
+    }
     @Override
     public String toString() {
 
-        return "\nImóvel:" + codigo +
+        return "\nImóvel: " + codigo +
                 "\nÁrea construida: " + areaConstruida +
                 "\nÁrea total: " + areaTotal +
                 "\nNúmero de quartos: " + numeroQuartos +
-                "\ntipo: " + tipo +
+                "\ntipo: " + mostraTipo() +
                 "\nPreço: " + preco + localizacao;
     }
 }
